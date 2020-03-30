@@ -1,0 +1,19 @@
+{
+  "name": "03-pm2.5-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@line/bot-sdk": "^6.4.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.17.1",
+    "node-rest-client": "^3.1.0",
+    "nodemon": "^1.18.9"
+  }
+}
