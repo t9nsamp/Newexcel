@@ -9,7 +9,7 @@ const peavolta = excelToJson({
   columnToKey: {
       '*': '{{columnHeader}}'
   },
-  range: 'A2:I14'
+  range: 'A2:L156'
 })
 
 require('dotenv').config()
