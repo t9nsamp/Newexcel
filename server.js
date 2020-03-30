@@ -77,7 +77,7 @@ function handleLocationEvent(event) {
             "contents": [
               {
                 "type": "text",
-                "text": `${row.bank},${row.name}`,
+                "text": `${row.bank} ${row.name}`,
                 "weight": "bold",
                 "size": "lg",
                 "wrap": true
@@ -102,7 +102,7 @@ function handleLocationEvent(event) {
                       },
                       {
                         "type": "text",
-                        "text": `${row.road},${row.district},${row.city}`,
+                        "text": `${row.road} ${row.district} ${row.city}`,
                         "wrap": true,
                         "color": "#666666",
                         "size": "sm",
