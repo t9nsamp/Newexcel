@@ -77,7 +77,7 @@ function handleLocationEvent(event) {
             "contents": [
               {
                 "type": "text",
-                "text": `${row.bank} ${row.name}`,
+                "text": `${row.bank},${row.name}`,
                 "weight": "bold",
                 "size": "lg",
                 "wrap": true
@@ -102,7 +102,7 @@ function handleLocationEvent(event) {
                       },
                       {
                         "type": "text",
-                        "text": `${row.road} ${row.district} ${row.city}`,
+                        "text": `${row.road},${row.district},${row.city}`,
                         "wrap": true,
                         "color": "#666666",
                         "size": "sm",
@@ -209,13 +209,11 @@ function handleLocationEvent(event) {
         //   ]
         // }))
         var msg = {
-          "type": "template",
-                "altText": "ข้อมูลสถานที่",
-                "template": {
-                  "type": "carousel",
-                  "columns": pinData,
-                  "imageAspectRatio": "rectangle",
-                  "imageSize": "cover"
+          "type": "flex",
+          "altText": "Flex Message",
+          "contents": {
+              "type": "carousel",
+              "contents": pinData
                 }
               }
         resolve(client.replyMessage(event.replyToken, msg))
