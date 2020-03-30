@@ -65,23 +65,149 @@ function handleLocationEvent(event) {
       })
       var result = []
       // collect only first 5 elements
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 3; i++) {
           result.push(voltajson[i])
       }
       if (result) {
         const pinData = result.map(row => ({
-          "thumbnailImageUrl": "https://s3.amazonaws.com/images.seroundtable.com/t-google-maps-icon-1580992464.png",
-          "imageBackgroundColor": "#FFFFFF",
-          "title": `${row.name}`,
-          "text": `${row.time}`,
-          "actions": [
-            {
-              "type": "uri",
-              "label": `${row.distacne} km, กดเพื่อนำทาง`,
-	      "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
-            }
-          ]
+          "type": "bubble",
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": `${row.bank} ${row.name}`,
+                "weight": "bold",
+                "size": "lg",
+                "wrap": true
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "margin": "lg",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "ที่อยู่",
+                        "color": "#aaaaaa",
+                        "size": "sm",
+                        "flex": 1
+                      },
+                      {
+                        "type": "text",
+                        "text": `${row.road} ${row.district} ${row.city}`,
+                        "wrap": true,
+                        "color": "#666666",
+                        "size": "sm",
+                        "flex": 5
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "เวลา",
+                        "color": "#aaaaaa",
+                        "size": "sm",
+                        "flex": 1
+                      },
+                      {
+                        "type": "text",
+                        "text": `${row.time}`,
+                        "wrap": true,
+                        "color": "#666666",
+                        "size": "sm",
+                        "flex": 5
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "ระยะทาง",
+                        "color": "#aaaaaa",
+                        "size": "sm",
+                        "flex": 1
+                      },
+                      {
+                        "type": "text",
+                        "text":  `${row.distacne} km`,
+                        "wrap": true,
+                        "color": "#666666",
+                        "size": "sm",
+                        "flex": 5
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "button",
+                "flex": 2,
+                "style": "primary",
+                "color": "#012971",
+                "action": {
+                  "type": "uri",
+                  "label": "นำทาง",
+                  "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
+                },
+                "height": "sm",
+                "color": "#012971"
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "เว็บไซต์",
+                  "uri": "https://www.uob.co.th/personal/location/locations-line.page"
+                },
+                "height": "sm",
+                
+              },
+              {
+                "type": "spacer",
+                "size": "sm"
+              }
+            ],
+            "flex": 0
+          }
+         
         }))
+          
+        //   "thumbnailImageUrl": "https://s3.amazonaws.com/images.seroundtable.com/t-google-maps-icon-1580992464.png",
+        //   "imageBackgroundColor": "#FFFFFF",
+        //   "title": `${row.name}`,
+        //   "text": `${row.time}`,
+        //   "actions": [
+        //     {
+        //       "type": "uri",
+        //       "label": `${row.distacne} km, กดเพื่อนำทาง`,
+	      // "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
+        //     }
+        //   ]
+        // }))
         var msg = {
           "type": "template",
                 "altText": "ข้อมูลสถานที่",
