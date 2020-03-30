@@ -23,7 +23,7 @@ const config = {
 const client = new line.Client(config)
 
 app.get('/', function (req, res) {
- res.send('03-pm2.5-bot')
+	res.send('03-pm2.5-bot')
 })
 
 app.post('/webhook', line.middleware(config), (req, res) => {
@@ -78,7 +78,7 @@ function handleLocationEvent(event) {
             {
               "type": "uri",
               "label": `${row.distacne} km, กดเพื่อนำทาง`,
-       "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
+	      "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
             }
           ]
         }))
