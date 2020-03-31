@@ -76,14 +76,14 @@ function handleLocationEvent(event) {
                 "type": "box",
                 "layout": "vertical",
                 "contents": [
-                  {
-                    "type": "image",
-                    "url": "https://sv1.picz.in.th/images/2020/03/31/Q6go1V.png",
-                    "size": "full",
-                    "aspectMode": "cover",
-                    "aspectRatio": "2:3",
-                    "gravity": "top"
-                  },
+                  // {
+                  //   "type": "image",
+                  //   "url": "https://sv1.picz.in.th/images/2020/03/31/Q6go1V.png",
+                  //   "size": "full",
+                  //   "aspectMode": "cover",
+                  //   "aspectRatio": "2:3",
+                  //   "gravity": "top"
+                  // },
                   {
                     "type": "box",
                     "layout": "vertical",
@@ -151,7 +151,7 @@ function handleLocationEvent(event) {
                             },
                             {
                               "type": "text",
-                              "text": `ระยะทาง : ${row.distance} km`,
+                              "text": `ระยะทาง : ${row.distacne} km`,
                               "color": "#ebebeb",
                               "size": "sm",
                               "flex": 0,
