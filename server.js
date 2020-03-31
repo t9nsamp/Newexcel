@@ -65,7 +65,7 @@ function handleLocationEvent(event) {
       })
       var result = []
       // collect only first 5 elements
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 5; i++) {
           result.push(voltajson[i])
       }
       if (result) {
@@ -73,6 +73,7 @@ function handleLocationEvent(event) {
           "type": "bubble",
           "body": {
             "type": "box",
+            "size": "nano",
             "layout": "vertical",
             "contents": [
               {
