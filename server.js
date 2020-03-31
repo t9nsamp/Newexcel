@@ -99,7 +99,7 @@ function handleLocationEvent(event) {
                         "text": "เวลาทำการ",
                         "color": "#aaaaaa",
                         "size": "sm",
-                        "flex": 1
+                        "flex": 3
                       },
                       {
                         "type": "text",
@@ -121,7 +121,7 @@ function handleLocationEvent(event) {
                         "text": "ติดต่อ",
                         "color": "#aaaaaa",
                         "size": "sm",
-                        "flex": 1
+                        "flex": 3
                       },
                       {
                         "type": "text",
@@ -143,7 +143,7 @@ function handleLocationEvent(event) {
                         "text": "ระยะทาง",
                         "color": "#aaaaaa",
                         "size": "sm",
-                        "flex": 1
+                        "flex": 3
                       },
                       {
                         "type": "text",
