@@ -81,7 +81,7 @@ function handleLocationEvent(event) {
                 "contents": [
                   {
                     "type": "image",
-                    "url": "https://lh3.googleusercontent.com/zoa-AJOdXEDF7Lai9Ik_qt_0JBr3vUHxBdSOs8UOe1TxsayURbJQ_IGQBVGBQ7rPhn4",
+                    "url": "https://sv1.picz.in.th/images/2020/03/31/Q6go1V.png",
                     "size": "full",
                     "aspectMode": "cover",
                     "aspectRatio": "2:3",
