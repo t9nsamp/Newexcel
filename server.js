@@ -95,6 +95,10 @@ function handleLocationEvent(event) {
                     "spacing": "sm",
                     "contents": [
                       {
+                        "type": "icon",
+                        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrZIY4WzEkh-Uk0i6nkrVgsKzAZQ0kHKq74g5zDGLbopUGhHBB&usqp=CAU"
+                      },
+                      {
                         "type": "text",
                         "text": "เวลาทำการ",
                         "color": "#aaaaaa",
@@ -116,6 +120,10 @@ function handleLocationEvent(event) {
                     "layout": "baseline",
                     "spacing": "sm",
                     "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrZIY4WzEkh-Uk0i6nkrVgsKzAZQ0kHKq74g5zDGLbopUGhHBB&usqp=CAU"
+                      },
                       {
                         "type": "text",
                         "text": "ติดต่อ",
@@ -140,12 +148,12 @@ function handleLocationEvent(event) {
                     "contents": [   
                         {
                           "type": "icon",
-                          "url": "https://sv1.picz.in.th/images/2020/03/31/Q6qMZk.png"
+                          "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrZIY4WzEkh-Uk0i6nkrVgsKzAZQ0kHKq74g5zDGLbopUGhHBB&usqp=CAU"
                         },
                       {
                         "type": "text",
                         "text": "ระยะทาง",
-                        "color": "#aaaaaa",
+                        "color": "#aaaaaa", 
                         "size": "sm",
                         "flex": 3
                       },
