@@ -95,14 +95,14 @@ function handleLocationEvent(event) {
                     "contents": [
                       {
                         "type": "text",
-                        "text": "ที่อยู่",
+                        "text": "เวลาทำการ",
                         "color": "#aaaaaa",
                         "size": "sm",
                         "flex": 1
                       },
                       {
                         "type": "text",
-                        "text": `${row.road} ${row.district} ${row.city}`,
+                        "text": `${row.time}`,
                         "wrap": true,
                         "color": "#666666",
                         "size": "sm",
@@ -117,14 +117,14 @@ function handleLocationEvent(event) {
                     "contents": [
                       {
                         "type": "text",
-                        "text": "เวลา",
+                        "text": "ติดต่อ",
                         "color": "#aaaaaa",
                         "size": "sm",
                         "flex": 1
                       },
                       {
                         "type": "text",
-                        "text": `${row.time}`,
+                        "text": `${row.phone}`,
                         "wrap": true,
                         "color": "#666666",
                         "size": "sm",
@@ -175,39 +175,13 @@ function handleLocationEvent(event) {
                 },
                 "height": "sm",
                 "color": "#012971"
-              },
-              {
-                "type": "button",
-                "action": {
-                  "type": "uri",
-                  "label": "เว็บไซต์",
-                  "uri": "https://www.uob.co.th/personal/location/locations-line.page"
-                },
-                "height": "sm",
-                
-              },
-              {
-                "type": "spacer",
-                "size": "sm"
-              }
+              } 
             ],
             "flex": 0
           }
          
         }))
           
-        //   "thumbnailImageUrl": "https://s3.amazonaws.com/images.seroundtable.com/t-google-maps-icon-1580992464.png",
-        //   "imageBackgroundColor": "#FFFFFF",
-        //   "title": `${row.name}`,
-        //   "text": `${row.time}`,
-        //   "actions": [
-        //     {
-        //       "type": "uri",
-        //       "label": `${row.distacne} km, กดเพื่อนำทาง`,
-	      // "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
-        //     }
-        //   ]
-        // }))
         var msg = {
           "type": "flex",
           "altText": "Flex Message",
