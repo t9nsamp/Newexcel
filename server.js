@@ -65,7 +65,7 @@ function handleLocationEvent(event) {
       })
       var result = []
       // collect only first 5 elements
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < 3; i++) {
           result.push(voltajson[i])
       }
       if (result) {
@@ -83,6 +83,7 @@ function handleLocationEvent(event) {
                 "size": "lg",
                 "wrap": true
               },
+              
               {
                 "type": "box",
                 "layout": "vertical",
@@ -94,10 +95,30 @@ function handleLocationEvent(event) {
                     "layout": "baseline",
                     "spacing": "sm",
                     "contents": [
+
                       {
-                        "type": "icon",
-                        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrZIY4WzEkh-Uk0i6nkrVgsKzAZQ0kHKq74g5zDGLbopUGhHBB&usqp=CAU"
+                        "type": "text",
+                        "text": "ที่อยู่",
+                        "color": "#aaaaaa",
+                        "size": "sm",
+                        "flex": 3
                       },
+                      {
+                        "type": "text",
+                        "text": `${row.road}`,
+                        "wrap": true,
+                        "color": "#666666",
+                        "size": "sm",
+                        "flex": 5
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "spacing": "sm",
+                    "contents": [
+
                       {
                         "type": "text",
                         "text": "เวลาทำการ",
@@ -120,10 +141,7 @@ function handleLocationEvent(event) {
                     "layout": "baseline",
                     "spacing": "sm",
                     "contents": [
-                      {
-                        "type": "icon",
-                        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrZIY4WzEkh-Uk0i6nkrVgsKzAZQ0kHKq74g5zDGLbopUGhHBB&usqp=CAU"
-                      },
+
                       {
                         "type": "text",
                         "text": "ติดต่อ",
@@ -146,10 +164,7 @@ function handleLocationEvent(event) {
                     "layout": "baseline",
                     "spacing": "sm",
                     "contents": [   
-                        {
-                          "type": "icon",
-                          "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrZIY4WzEkh-Uk0i6nkrVgsKzAZQ0kHKq74g5zDGLbopUGhHBB&usqp=CAU"
-                        },
+
                       {
                         "type": "text",
                         "text": "ระยะทาง",
@@ -169,7 +184,9 @@ function handleLocationEvent(event) {
                   }
                 ]
               }
-            ]
+            ],
+            "borderColor": "#002469",
+            "borderWidth": "2px"
           },
           "footer": {
             "type": "box",
