@@ -70,18 +70,12 @@ function handleLocationEvent(event) {
       }
       if (result) {
         const pinData = result.map(row => ({
-             
-        
           "type": "bubble",
           "size": "kilo",
           "body": {
             "type": "box",
             "layout": "vertical",
             "contents": [
-              {
-                "type": "icon",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
               {
                 "type": "text",
                 "text": `${row.bank} ${row.name}`,
@@ -105,7 +99,7 @@ function handleLocationEvent(event) {
                         "text": "เวลาทำการ",
                         "color": "#aaaaaa",
                         "size": "sm",
-                        "flex": 3
+                        "flex": 1
                       },
                       {
                         "type": "text",
@@ -123,15 +117,11 @@ function handleLocationEvent(event) {
                     "spacing": "sm",
                     "contents": [
                       {
-                        "type": "icon",
-                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                      },
-                      {
                         "type": "text",
                         "text": "ติดต่อ",
                         "color": "#aaaaaa",
                         "size": "sm",
-                        "flex": 3
+                        "flex": 1
                       },
                       {
                         "type": "text",
@@ -149,15 +139,11 @@ function handleLocationEvent(event) {
                     "spacing": "sm",
                     "contents": [
                       {
-                        "type": "icon",
-                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                      },
-                      {
                         "type": "text",
                         "text": "ระยะทาง",
                         "color": "#aaaaaa",
                         "size": "sm",
-                        "flex": 3
+                        "flex": 1
                       },
                       {
                         "type": "text",
