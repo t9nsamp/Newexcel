@@ -187,7 +187,7 @@ function handleLocationEvent(event) {
             ],
             // "borderColor": "#002469",
             // "borderWidth": "3px"
-            "backgroundColor": "#EEECEC"
+            "backgroundColor": "#F9F8F7"
           },
           "footer": {
             "type": "box",
