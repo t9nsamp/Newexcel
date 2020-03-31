@@ -70,269 +70,130 @@ function handleLocationEvent(event) {
       }
       if (result) {
         const pinData = result.map(row => ({
-              "type": "bubble",
-              "size": "mega",
-              "body": {
+             
+        
+          "type": "bubble",
+          "size": "kilo",
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "icon",
+                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+              },
+              {
+                "type": "text",
+                "text": `${row.bank} ${row.name}`,
+                "weight": "bold",
+                "size": "lg",
+                "wrap": true
+              },
+              {
                 "type": "box",
                 "layout": "vertical",
+                "margin": "lg",
+                "spacing": "sm",
                 "contents": [
-                  // {
-                  //   "type": "image",
-                  //   "url": "https://sv1.picz.in.th/images/2020/03/31/Q6go1V.png",
-                  //   "size": "full",
-                  //   "aspectMode": "cover",
-                  //   "aspectRatio": "2:3",
-                  //   "gravity": "top"
-                  // },
                   {
                     "type": "box",
-                    "layout": "vertical",
+                    "layout": "baseline",
+                    "spacing": "sm",
                     "contents": [
                       {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                          {
-                            "type": "text",
-                            "text": `${row.bank} ${row.name}`,
-                            "size": "xl",
-                            "color": "#ffffff",
-                            "weight": "bold"
-                          }
-                        ]
+                        "type": "text",
+                        "text": "เวลาทำการ",
+                        "color": "#aaaaaa",
+                        "size": "sm",
+                        "flex": 3
                       },
                       {
-                        "type": "box",
-                        "layout": "baseline",
-                        "contents": [
-                          {
-                            "type": "icon",
-                            "url": "https://sv1.picz.in.th/images/2020/03/31/Q6go1V.png"
-                          },
-                          {
-                            "type": "text",
-                            "text": `${row.phone}`,
-                            "color": "#ebebeb",
-                            "size": "sm",
-                            "flex": 0,
-                            "offsetTop": "-2px"
-                          }
-                        ],
-                        "spacing": "md",
-                        "margin": "md"
-                      },
-                      {
-                        "type": "box",
-                        "layout": "baseline",
-                        "contents": [
-                          {
-                            "type": "icon",
-                            "url": "https://sv1.picz.in.th/images/2020/03/31/Q6i73P.png"
-                          },
-                          {
-                            "type": "text",
-                            "text": `${row.time}`,
-                            "color": "#ebebeb",
-                            "size": "sm",
-                            "flex": 0,
-                            "offsetTop": "-3px"
-                          }
-                        ],
-                        "spacing": "md",
-                        "margin": "md"
-                      },
-                      {
-                          "type": "box",
-                          "layout": "baseline",
-                          "contents": [
-                            {
-                              "type": "icon",
-                              "url": "https://sv1.picz.in.th/images/2020/03/31/Q6qMZk.png"
-                            },
-                            {
-                              "type": "text",
-                              "text": `ระยะทาง : ${row.distacne} km`,
-                              "color": "#ebebeb",
-                              "size": "sm",
-                              "flex": 0,
-                              "offsetTop": "-3px"
-                            }
-                          ],
-                          "spacing": "md",
-                          "margin": "md"
-                        },
-                      {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                          {
-                            "type": "filler"
-                          },
-                          {
-                            "type": "box",
-                            "layout": "baseline",
-                            "contents": [
-                              {
-                                "type": "filler"
-                              },
-                              {
-                                "type": "icon",
-                                "url": "https://sv1.picz.in.th/images/2020/03/31/Q6i3PV.png"
-                              },
-                              {
-                                "type": "text",
-                                "text": "กดเพื่อนำทาง",
-                                "color": "#ffffff",
-                                "offsetTop": "-2px",
-                                "margin": "md",
-                                "flex": 0
-                              },
-                              {
-                                "type": "filler"
-                              }
-                            ],
-                            "spacing": "sm",
-                            "action": {
-                              "type": "uri",
-                              "label": "action",
-                              "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
-                            }
-                          },
-                          {
-                            "type": "filler"
-                          }
-                        ],
-                        "borderWidth": "1px",
-                        "cornerRadius": "4px",
-                        "spacing": "sm",
-                        "borderColor": "#ffffff",
-                        "margin": "md",
-                        "height": "40px"
+                        "type": "text",
+                        "text": `${row.time}`,
+                        "wrap": true,
+                        "color": "#666666",
+                        "size": "sm",
+                        "flex": 5
                       }
-                    ],
-                    "position": "absolute",
-                    "offsetBottom": "0px",
-                    "offsetStart": "0px",
-                    "offsetEnd": "0px",
-                    "backgroundColor": "#282828cc",
-                    "paddingAll": "18px",
-                    "paddingTop": "18px"
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "ติดต่อ",
+                        "color": "#aaaaaa",
+                        "size": "sm",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text": `${row.phone}`,
+                        "wrap": true,
+                        "color": "#666666",
+                        "size": "sm",
+                        "flex": 5
+                      }
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                      },
+                      {
+                        "type": "text",
+                        "text": "ระยะทาง",
+                        "color": "#aaaaaa",
+                        "size": "sm",
+                        "flex": 3
+                      },
+                      {
+                        "type": "text",
+                        "text":  `${row.distacne} km`,
+                        "wrap": true,
+                        "color": "#666666",
+                        "size": "sm",
+                        "flex": 5
+                      }
+                    ]
                   }
-                ],
-                "paddingAll": "0px"
-              
-            } //End 1st Bubble
-        
-          // "type": "bubble",
-          // "size": "kilo",
-          // "body": {
-          //   "type": "box",
-          //   "layout": "vertical",
-          //   "contents": [
-          //     {
-          //       "type": "text",
-          //       "text": `${row.bank} ${row.name}`,
-          //       "weight": "bold",
-          //       "size": "lg",
-          //       "wrap": true
-          //     },
-          //     {
-          //       "type": "box",
-          //       "layout": "vertical",
-          //       "margin": "lg",
-          //       "spacing": "sm",
-          //       "contents": [
-          //         {
-          //           "type": "box",
-          //           "layout": "baseline",
-          //           "spacing": "sm",
-          //           "contents": [
-          //             {
-          //               "type": "text",
-          //               "text": "เวลาทำการ",
-          //               "color": "#aaaaaa",
-          //               "size": "sm",
-          //               "flex": 1
-          //             },
-          //             {
-          //               "type": "text",
-          //               "text": `${row.time}`,
-          //               "wrap": true,
-          //               "color": "#666666",
-          //               "size": "sm",
-          //               "flex": 5
-          //             }
-          //           ]
-          //         },
-          //         {
-          //           "type": "box",
-          //           "layout": "baseline",
-          //           "spacing": "sm",
-          //           "contents": [
-          //             {
-          //               "type": "text",
-          //               "text": "ติดต่อ",
-          //               "color": "#aaaaaa",
-          //               "size": "sm",
-          //               "flex": 1
-          //             },
-          //             {
-          //               "type": "text",
-          //               "text": `${row.phone}`,
-          //               "wrap": true,
-          //               "color": "#666666",
-          //               "size": "sm",
-          //               "flex": 5
-          //             }
-          //           ]
-          //         },
-          //         {
-          //           "type": "box",
-          //           "layout": "baseline",
-          //           "spacing": "sm",
-          //           "contents": [
-          //             {
-          //               "type": "text",
-          //               "text": "ระยะทาง",
-          //               "color": "#aaaaaa",
-          //               "size": "sm",
-          //               "flex": 1
-          //             },
-          //             {
-          //               "type": "text",
-          //               "text":  `${row.distacne} km`,
-          //               "wrap": true,
-          //               "color": "#666666",
-          //               "size": "sm",
-          //               "flex": 5
-          //             }
-          //           ]
-          //         }
-          //       ]
-          //     }
-          //   ]
-          // },
-          // "footer": {
-          //   "type": "box",
-          //   "layout": "vertical",
-          //   "spacing": "sm",
-          //   "contents": [
-          //     {
-          //       "type": "button",
-          //       "flex": 2,
-          //       "style": "primary",
-          //       "color": "#012971",
-          //       "action": {
-          //         "type": "uri",
-          //         "label": "นำทาง",
-          //         "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
-          //       },
-          //       "height": "sm",
-          //       "color": "#012971"
-          //     } 
-          //   ],
-          //   "flex": 0
-          // }
+                ]
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "button",
+                "flex": 2,
+                "style": "primary",
+                "color": "#012971",
+                "action": {
+                  "type": "uri",
+                  "label": "นำทาง",
+                  "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
+                },
+                "height": "sm",
+                "color": "#012971"
+              } 
+            ],
+            "flex": 0
+          }
          
         }))
           
