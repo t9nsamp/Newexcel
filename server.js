@@ -137,7 +137,11 @@ function handleLocationEvent(event) {
                     "type": "box",
                     "layout": "baseline",
                     "spacing": "sm",
-                    "contents": [
+                    "contents": [   
+                        {
+                          "type": "icon",
+                          "url": "https://sv1.picz.in.th/images/2020/03/31/Q6qMZk.png"
+                        },
                       {
                         "type": "text",
                         "text": "ระยะทาง",
