@@ -71,7 +71,7 @@ function handleLocationEvent(event) {
       if (result) {
         const pinData = result.map(row => ({
           "type": "bubble",
-          "size": "nano",
+          "size": "micro",
           "body": {
             "type": "box",
             "layout": "vertical",
