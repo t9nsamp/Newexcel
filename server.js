@@ -70,9 +70,6 @@ function handleLocationEvent(event) {
       }
       if (result) {
         const pinData = result.map(row => ({
-          "type": "carousel",
-          "contents": [
-            {
               "type": "bubble",
               "size": "mega",
               "body": {
@@ -223,9 +220,9 @@ function handleLocationEvent(event) {
                   }
                 ],
                 "paddingAll": "0px"
-              }
+              
             } //End 1st Bubble
-          ]
+        
           // "type": "bubble",
           // "size": "kilo",
           // "body": {
