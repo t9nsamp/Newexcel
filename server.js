@@ -19,7 +19,7 @@ const config = {
   channelAccessToken: process.env.channelAccessToken,
   channelSecret: process.env.channelSecret
 }
-
+app.use(express.static('public'));
 const client = new line.Client(config)
 
 app.get('/', function (req, res) {
@@ -27,19 +27,33 @@ app.get('/', function (req, res) {
 })
 
 app.post('/webhook', line.middleware(config), (req, res) => {
-  Promise
-    .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result))
-    .catch(err => console.log('err', err))
+
+  if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
+
+      postToDialogflow(req);
+  
+    }
+
+   else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
+
+Promise
+  //.all(req.body.events.map(handleEvent))
+  .all(req.body.events.map(handleLocationEvent))
+  .then((result) => res.json(result))
+  .catch(err => console.log('err', err))
+
+   }
+
 });
 
-function handleEvent(event) {
-  if(event.type === 'message' && event.message.type === 'location') {
-    return handleLocationEvent(event)
-  }else {
-    return Promise.resolve(null)
-  }
-}
+// function handleEvent(event) {
+  
+//   if(event.type === 'message' && event.message.type === 'location') {
+//     return handleLocationEvent(event)
+//   }else {
+//     return Promise.resolve(null)
+//   }
+// }
 
 function handleLocationEvent(event) {
   return new Promise((resolve, reject) => {
@@ -235,8 +249,22 @@ function handleLocationEvent(event) {
  
 }
 
+const postToDialogflow = req => {
+  req.headers.host = "bots.dialogflow.com";
+  return request({
+    method: "POST",
+    uri: 'https://bots.dialogflow.com/line/d5e4e13d-c0cc-4c84-8506-c1d21c965b02/webhook',
+    headers: req.headers,
+    body: JSON.stringify(req.body)
+     });
+};
+
+
 app.set('port', (process.env.PORT || 4000))
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 app.listen(app.get('port'), function () {
   console.log('run at port', app.get('port'))
 })
+
