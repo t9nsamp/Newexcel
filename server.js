@@ -27,7 +27,7 @@ app.use(express.static('public'));
 const client = new line.Client(config)
 
 app.get('/', function (req, res) {
-	res.send('PEA Volta Location')
+	res.send('UOB-bot')
 })
 
 app.post('/webhook', line.middleware(config), (req, res) => {
