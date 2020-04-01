@@ -57,7 +57,8 @@ Promise
 
 function handleLocationEvent(event) {
   return new Promise((resolve, reject) => {
-    restClient.get(`${process.env.apiUrl}?lat=${event.message.latitude}&long=${event.message.longitude}`, (data, response) => {
+    return new Promise((resolve, reject) => {
+
       var userlat = parseFloat(event.message.latitude)
       var userlng = parseFloat(event.message.longitude)
       const voltajson = peavolta.Sheet1
@@ -79,9 +80,10 @@ function handleLocationEvent(event) {
       })
       var result = []
       // collect only first 5 elements
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 5; i++) {
           result.push(voltajson[i])
       }
+
       if (result) {
         const pinData = result.map(row => ({
           "type": "bubble",
