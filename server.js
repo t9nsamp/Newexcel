@@ -1,4 +1,6 @@
 const express = require('express')
+const bodyParser = require('body-parser');
+var request = require('request');
 const line = require('@line/bot-sdk')
 const restClient = new (require('node-rest-client').Client)
 const excelToJson = require('convert-excel-to-json')
@@ -19,45 +21,38 @@ const config = {
   channelAccessToken: process.env.channelAccessToken,
   channelSecret: process.env.channelSecret
 }
+
 app.use(express.static('public'));
+
 const client = new line.Client(config)
 
 app.get('/', function (req, res) {
-	res.send('Bot-Uob')
+	res.send('PEA Volta Location')
 })
 
 app.post('/webhook', line.middleware(config), (req, res) => {
 
-  if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
+    if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
 
-      postToDialogflow(req);
-  
-    }
+        postToDialogflow(req);
+    
+      }
 
-   else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
+     else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
 
-Promise
-  //.all(req.body.events.map(handleEvent))
-  .all(req.body.events.map(handleLocationEvent))
-  .then((result) => res.json(result))
-  .catch(err => console.log('err', err))
+  Promise
+    //.all(req.body.events.map(handleEvent))
+    .all(req.body.events.map(handleLocationEvent))
+    .then((result) => res.json(result))
+    .catch(err => console.log('err', err))
 
-   }
+     }
 
 });
 
-// function handleEvent(event) {
-  
-//   if(event.type === 'message' && event.message.type === 'location') {
-//     return handleLocationEvent(event)
-//   }else {
-//     return Promise.resolve(null)
-//   }
-// }
-
 function handleLocationEvent(event) {
+
   return new Promise((resolve, reject) => {
-    return new Promise((resolve, reject) => {
 
       var userlat = parseFloat(event.message.latitude)
       var userlng = parseFloat(event.message.longitude)
@@ -86,155 +81,26 @@ function handleLocationEvent(event) {
 
       if (result) {
         const pinData = result.map(row => ({
-          "type": "bubble",
-          "size": "kilo",
-          "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": `${row.bank} ${row.name}`,
-                "weight": "bold",
-                "size": "lg",
-                "wrap": true
-              },
-              
-              {
-                "type": "box",
-                "layout": "vertical",
-                "margin": "lg",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "spacing": "sm",
-                    "contents": [
-
-                      {
-                        "type": "text",
-                        "text": "ที่อยู่",
-                        "color": "#aaaaaa",
-                        "size": "sm",
-                        "flex": 3
-                      },
-                      {
-                        "type": "text",
-                        "text": `${row.road}`,
-                        "wrap": true,
-                        "color": "#666666",
-                        "size": "sm",
-                        "flex": 5
-                      }
-                    ]
-                  },
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "spacing": "sm",
-                    "contents": [
-
-                      {
-                        "type": "text",
-                        "text": "เวลาทำการ",
-                        "color": "#aaaaaa",
-                        "size": "sm",
-                        "flex": 3
-                      },
-                      {
-                        "type": "text",
-                        "text": `${row.time}`,
-                        "wrap": true,
-                        "color": "#666666",
-                        "size": "sm",
-                        "flex": 5
-                      }
-                    ]
-                  },
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "spacing": "sm",
-                    "contents": [
-
-                      {
-                        "type": "text",
-                        "text": "ติดต่อ",
-                        "color": "#aaaaaa",
-                        "size": "sm",
-                        "flex": 3
-                      },
-                      {
-                        "type": "text",
-                        "text": `${row.phone}`,
-                        "wrap": true,
-                        "color": "#666666",
-                        "size": "sm",
-                        "flex": 5
-                      }
-                    ]
-                  },
-                  {
-                    "type": "box",
-                    "layout": "baseline",
-                    "spacing": "sm",
-                    "contents": [   
-
-                      {
-                        "type": "text",
-                        "text": "ระยะทาง",
-                        "color": "#aaaaaa", 
-                        "size": "sm",
-                        "flex": 3
-                      },
-                      {
-                        "type": "text",
-                        "text":  `${row.distacne} km`,
-                        "wrap": true,
-                        "color": "#666666",
-                        "size": "sm",
-                        "flex": 5
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            // "borderColor": "#002469",
-            // "borderWidth": "3px"
-            "backgroundColor": "#F9F8F7"
-          },
-          "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "button",
-                "flex": 2,
-                "style": "primary",
-                "color": "#012971",
-                "action": {
-                  "type": "uri",
-                  "label": "นำทาง",
-                  "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
-                },
-                "height": "sm",
-                "color": "#012971"
-              } 
-            ],
-            "flex": 0
-          }
-         
+          "thumbnailImageUrl": "https://s3.amazonaws.com/images.seroundtable.com/t-google-maps-icon-1580992464.png",
+          "imageBackgroundColor": "#FFFFFF",
+          "title": `${row.name}`,
+          "text": `${row.name}`,
+          "actions": [
+            {
+              "type": "uri",
+              "label": `${row.name} km, กดเพื่อนำทาง`,
+	      "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
+            }
+          ]
         }))
-          
         var msg = {
-          "type": "flex",
-          "altText": "Flex Message",
-          "contents": {
-              "type": "carousel",
-              "contents": pinData
+          "type": "template",
+                "altText": "ข้อมูลสถานที่",
+                "template": {
+                  "type": "carousel",
+                  "columns": pinData,
+                  "imageAspectRatio": "rectangle",
+                  "imageSize": "cover"
                 }
               }
         resolve(client.replyMessage(event.replyToken, msg))
@@ -246,27 +112,28 @@ function handleLocationEvent(event) {
         //resolve(client.replyMessage(event.replyToken, msg))
         reject(msg)
       }
-    })
-  })
+
+    } 
+  )
  
 }
 
+
 const postToDialogflow = req => {
-  req.headers.host = "bots.dialogflow.com";
-  return request({
-    method: "POST",
-    uri: 'https://bots.dialogflow.com/line/d5e4e13d-c0cc-4c84-8506-c1d21c965b02/webhook',
-    headers: req.headers,
-    body: JSON.stringify(req.body)
-     });
-};
+    req.headers.host = "bots.dialogflow.com";
+    return request({
+      method: "POST",
+      uri: 'https://bots.dialogflow.com/line/d5e4e13d-c0cc-4c84-8506-c1d21c965b02/webhook',
+      headers: req.headers,
+      body: JSON.stringify(req.body)
+       });
+  };
 
 
-app.set('port', (process.env.PORT || 4000))
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
-
-app.listen(app.get('port'), function () {
-  console.log('run at port', app.get('port'))
-})
-
+  app.set('port', (process.env.PORT || 4000))
+  app.use(bodyParser.urlencoded({extended: false}))
+  app.use(bodyParser.json())
+  
+  app.listen(app.get('port'), function () {
+    console.log('run at port', app.get('port'))
+  })
