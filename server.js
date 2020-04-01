@@ -20,30 +20,37 @@ const config = {
   channelSecret: process.env.channelSecret
 }
 
+app.use(express.static('public'));
+
 const client = new line.Client(config)
 
 app.get('/', function (req, res) {
-	res.send('03-pm2.5-bot')
+	res.send('bot-UOB')
 })
 
 app.post('/webhook', line.middleware(config), (req, res) => {
-  Promise
-    .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result))
-    .catch(err => console.log('err', err))
-});
 
-function handleEvent(event) {
-  if(event.type === 'message' && event.message.type === 'location') {
-    return handleLocationEvent(event)
-  }else {
-    return Promise.resolve(null)
-  }
-}
+  if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
+
+      postToDialogflow(req);
+  
+    }
+
+   else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
+
+Promise
+  //.all(req.body.events.map(handleEvent))
+  .all(req.body.events.map(handleLocationEvent))
+  .then((result) => res.json(result))
+  .catch(err => console.log('err', err))
+
+   }
+
+});
 
 function handleLocationEvent(event) {
   return new Promise((resolve, reject) => {
-    restClient.get(`${process.env.apiUrl}?lat=${event.message.latitude}&long=${event.message.longitude}`, (data, response) => {
+    // restClient.get(`${process.env.apiUrl}?lat=${event.message.latitude}&long=${event.message.longitude}`, (data, response) => {
       var userlat = parseFloat(event.message.latitude)
       var userlng = parseFloat(event.message.longitude)
       const voltajson = peavolta.Sheet1
@@ -231,11 +238,21 @@ function handleLocationEvent(event) {
         reject(msg)
       }
     })
-  })
+  // })
  
 }
-
+const postToDialogflow = req => {
+  req.headers.host = "bots.dialogflow.com";
+  return request({
+    method: "POST",
+    uri: 'https://bots.dialogflow.com/line/a45beaa7-3b54-4da7-97c9-622e61ecdc00/webhook',
+    headers: req.headers,
+    body: JSON.stringify(req.body)
+     });
+};
 app.set('port', (process.env.PORT || 4000))
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 
 app.listen(app.get('port'), function () {
   console.log('run at port', app.get('port'))
