@@ -237,7 +237,8 @@ function handleLocationEvent(event) {
         //resolve(client.replyMessage(event.replyToken, msg))
         reject(msg)
       }
-    })
+    }
+    )
   // })
  
 }
@@ -245,7 +246,7 @@ const postToDialogflow = req => {
   req.headers.host = "bots.dialogflow.com";
   return request({
     method: "POST",
-    uri: 'https://bots.dialogflow.com/line/a45beaa7-3b54-4da7-97c9-622e61ecdc00/webhook',
+    uri: 'https://bots.dialogflow.com/line/2f3e5d46-7576-44a3-888f-c412c8a6b48f/webhook',
     headers: req.headers,
     body: JSON.stringify(req.body)
      });
