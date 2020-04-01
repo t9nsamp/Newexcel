@@ -23,7 +23,7 @@ const config = {
 const client = new line.Client(config)
 
 app.get('/', function (req, res) {
-	res.send('03-pm2.5-bot')
+	res.send('Bot-Uob')
 })
 
 app.post('/webhook', line.middleware(config), (req, res) => {
