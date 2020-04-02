@@ -221,15 +221,13 @@ function handleLocationEvent(event) {
               {
                 "type": "button",
                 "flex": 2,
-                "style": "primary",
-                "color": "#012971",
-                "action": {
+                "style": "link",
+                "height": "sm",
+                "action":  {
                   "type": "uri",
                   "label": "เปิดบัญชีเงินฝากกับ UOB",
                   "uri": "https://uniservices1.uobgroup.com/secure/forms/th/business/business-account-opening/index.html?lang=th?s_cid=default-landing"
-                },
-                "height": "sm",
-                "color": "#012971"
+                }
               }  
             ],
             "flex": 0
