@@ -15,7 +15,7 @@ const peavolta = excelToJson({
 })
 
 require('dotenv').config()
-const app = express()
+const app = express() 
 
 const config = {
   channelAccessToken: process.env.channelAccessToken,
@@ -217,7 +217,20 @@ function handleLocationEvent(event) {
                 },
                 "height": "sm",
                 "color": "#012971"
-              } 
+              },
+              {
+                "type": "button",
+                "flex": 2,
+                "style": "primary",
+                "color": "#012971",
+                "action": {
+                  "type": "uri",
+                  "label": "เปิดบัญชีเงินฝากกับ UOB",
+                  "uri": "https://uniservices1.uobgroup.com/secure/forms/th/business/business-account-opening/index.html?lang=th?s_cid=default-landing"
+                },
+                "height": "sm",
+                "color": "#012971"
+              }  
             ],
             "flex": 0
           }
