@@ -225,7 +225,7 @@ function handleLocationEvent(event) {
                 "height": "sm",
                 "action":  {
                   "type": "uri",
-                  "label": "เปิดบัญชีเงินฝากกับ UOB",
+                  "label": "เปิดบัญชีเงินฝาก",
                   "uri": "https://uniservices1.uobgroup.com/secure/forms/th/business/business-account-opening/index.html?lang=th?s_cid=default-landing"
                 }
               }  
