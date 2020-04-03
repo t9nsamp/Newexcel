@@ -100,14 +100,7 @@ function handleLocationEvent(event) {
                     "wrap": true
                   }
                 ]
-              },
-              // {
-              //   "type": "text",
-              //   "text": `${row.bank} ${row.name}`,
-              //   "weight": "bold",
-              //   "size": "lg",
-              //   "wrap": true
-              // },       
+              },      
               {
                 "type": "box",
                 "layout": "vertical",
@@ -121,7 +114,7 @@ function handleLocationEvent(event) {
                     "contents": [
                       {
                         "type": "icon",
-                        "size": "xl",
+                        "size": "3xl",
                         "url": "https://ran-ln.tk/saveIMG/tmrw.png"
                       },
 
