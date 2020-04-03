@@ -234,10 +234,46 @@ function handleLocationEvent(event) {
             // "borderWidth": "3px"
             "backgroundColor": "#F9F8F7"
           },
-           "footer":                     {
+           "footer":{
             "type": "box",
             "layout": "vertical",
             "contents": [
+              {
+                "type": "filler"
+              },
+              {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "icon",
+                    "url": "https://sv1.picz.in.th/images/2020/04/01/Qrk0yq.png"
+                  },
+                  {
+                    "type": "text",
+                    "text": "กดนำทาง",
+                    "color": "#ffffff",
+                    "offsetTop": "-2px",
+                    "margin": "md",
+                    "flex": 0
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "spacing": "sm",
+                "action": {
+                  "type": "uri",
+                  "label": "action",
+                  "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
+                }
+              },
+              {
+                "type": "filler"
+              },
               {
                 "type": "filler"
               },
@@ -281,7 +317,7 @@ function handleLocationEvent(event) {
             "borderColor": "#ffffff",
             "margin": "md",
             "height": "40px",
-            "backgroundColor": "#48484899"
+            "backgroundColor": "#012971"
           }
            //{
           //   "type": "box",
