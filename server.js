@@ -88,16 +88,27 @@ function handleLocationEvent(event) {
             "layout": "vertical",
             "contents": [
               {
-                "type": "text",
-                "text": `${row.bank} ${row.name}`,
-                "weight": "bold",
-                "size": "lg",
-                "wrap": true
+                "type": "box",
+                "layout": "baseline",
+                "margin": "md",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "hello, world"
+                  },
+                  {
+                    "type": "icon",
+                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                  }
+                ]
               },
-              {
-                "type": "icon",
-                "url": "https://ran-ln.tk/saveIMG/location.png"
-              },
+              // {
+              //   "type": "text",
+              //   "text": `${row.bank} ${row.name}`,
+              //   "weight": "bold",
+              //   "size": "lg",
+              //   "wrap": true
+              // },
               
               {
                 "type": "box",
