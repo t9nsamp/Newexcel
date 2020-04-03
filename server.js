@@ -101,7 +101,7 @@ function handleLocationEvent(event) {
                   },
                   {
                     "type": "icon",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                    "url": "https://ran-ln.tk/saveIMG/tmrw.png"
                   }
                 ]
               },
