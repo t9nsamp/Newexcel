@@ -129,6 +129,18 @@ function handleLocationEvent(event) {
                         "url": "https://ran-ln.tk/saveIMG/location.png"
                       },
 
+                    ]
+                  },
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "spacing": "sm",
+                    "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://ran-ln.tk/saveIMG/location.png"
+                      },
+
                       {
                         "type": "text",
                         "text": "ที่อยู่",
