@@ -274,6 +274,20 @@ function handleLocationEvent(event) {
               {
                 "type": "filler"
               },
+
+            ],
+            "borderWidth": "2px",
+            "cornerRadius": "8px",
+            "spacing": "sm",
+            "borderColor": "#ffffff",
+            "margin": "md",
+            "height": "40px",
+            "backgroundColor": "#012971"
+          },
+          "footer":{
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
               {
                 "type": "filler"
               },
@@ -309,7 +323,8 @@ function handleLocationEvent(event) {
               },
               {
                 "type": "filler"
-              }
+              },
+
             ],
             "borderWidth": "2px",
             "cornerRadius": "8px",
