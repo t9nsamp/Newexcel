@@ -101,6 +101,7 @@ function handleLocationEvent(event) {
                   },
                   {
                     "type": "icon",
+                    "size": "xl",
                     "url": "https://ran-ln.tk/saveIMG/tmrw.png"
                   }
                 ]
