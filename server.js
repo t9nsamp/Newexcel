@@ -95,6 +95,9 @@ function handleLocationEvent(event) {
                   {
                     "type": "text",
                     "text": `${row.bank} ${row.name}`,
+                    "weight": "bold",
+                    "size": "lg",
+                    "wrap": true
                   },
                   {
                     "type": "icon",
