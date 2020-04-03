@@ -94,6 +94,10 @@ function handleLocationEvent(event) {
                 "size": "lg",
                 "wrap": true
               },
+              {
+                "type": "icon",
+                "url": "https://ran-ln.tk/saveIMG/location.png"
+              },
               
               {
                 "type": "box",
