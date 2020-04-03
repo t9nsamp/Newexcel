@@ -1,4 +1,4 @@
-const express = require('express')
+  const express = require('express')
 const bodyParser = require('body-parser');
 var request = require('request');
 const line = require('@line/bot-sdk')
@@ -106,6 +106,10 @@ function handleLocationEvent(event) {
                     "layout": "baseline",
                     "spacing": "sm",
                     "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://ran-ln.tk/saveIMG/location.png"
+                      },
 
                       {
                         "type": "text",
@@ -129,6 +133,10 @@ function handleLocationEvent(event) {
                     "layout": "baseline",
                     "spacing": "sm",
                     "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://ran-ln.tk/saveIMG/time.png"
+                      },
 
                       {
                         "type": "text",
@@ -152,6 +160,10 @@ function handleLocationEvent(event) {
                     "layout": "baseline",
                     "spacing": "sm",
                     "contents": [
+                      {
+                        "type": "icon",
+                        "url": "https://ran-ln.tk/saveIMG/latlng.png"
+                      }, 
 
                       {
                         "type": "text",
@@ -174,7 +186,11 @@ function handleLocationEvent(event) {
                     "type": "box",
                     "layout": "baseline",
                     "spacing": "sm",
-                    "contents": [   
+                    "contents": [  
+                      {
+                        "type": "icon",
+                        "url": "https://ran-ln.tk/saveIMG/latlng.png"
+                      }, 
 
                       {
                         "type": "text",
