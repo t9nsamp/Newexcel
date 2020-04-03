@@ -98,11 +98,6 @@ function handleLocationEvent(event) {
                     "weight": "bold",
                     "size": "lg",
                     "wrap": true
-                  },
-                  {
-                    "type": "icon",
-                    "size": "xl",
-                    "url": "https://ran-ln.tk/saveIMG/tmrw.png"
                   }
                 ]
               },
@@ -126,7 +121,8 @@ function handleLocationEvent(event) {
                     "contents": [
                       {
                         "type": "icon",
-                        "url": "https://ran-ln.tk/saveIMG/location.png"
+                        "size": "xl",
+                        "url": "https://ran-ln.tk/saveIMG/tmrw.png"
                       },
 
                     ]
