@@ -162,7 +162,7 @@ function handleLocationEvent(event) {
                     "contents": [
                       {
                         "type": "icon",
-                        "url": "https://ran-ln.tk/saveIMG/latlng.png"
+                        "url": "https://ran-ln.tk/saveIMG/phone.png"
                       }, 
 
                       {
@@ -189,7 +189,7 @@ function handleLocationEvent(event) {
                     "contents": [  
                       {
                         "type": "icon",
-                        "url": "https://ran-ln.tk/saveIMG/latlng.png"
+                        "url": "https://ran-ln.tk/saveIMG/latlng1.png"
                       }, 
 
                       {
