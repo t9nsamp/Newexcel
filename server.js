@@ -115,7 +115,7 @@ function handleLocationEvent(event) {
                       {
                         "type": "icon",
                         "size": "3xl",
-                        "url": "https://ran-ln.tk/saveIMG/tmrw.png"
+                        "url": row.logo
                       },
 
                     ]
