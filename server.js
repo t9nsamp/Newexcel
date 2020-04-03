@@ -162,7 +162,7 @@ function handleLocationEvent(event) {
                     "contents": [
                       {
                         "type": "icon",
-                        "url": "https://ran-ln.tk/saveIMG/phone1.png"
+                        "url": "https://ran-ln.tk/saveIMG/phone2.png"
                       }, 
 
                       {
