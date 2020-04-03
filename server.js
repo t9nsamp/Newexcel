@@ -272,7 +272,7 @@ function handleLocationEvent(event) {
           "type": "flex",
           "altText": "Flex Message",
           "contents": {
-              "type": "box",
+              "type": "carousel",
               "contents": pinData
                 }
               }
