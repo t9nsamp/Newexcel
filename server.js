@@ -94,7 +94,7 @@ function handleLocationEvent(event) {
                 "contents": [
                   {
                     "type": "text",
-                    "text": "hello, world"
+                    "text": `${row.bank} ${row.name}`,
                   },
                   {
                     "type": "icon",
