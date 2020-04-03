@@ -112,8 +112,7 @@ function handleLocationEvent(event) {
               //   "weight": "bold",
               //   "size": "lg",
               //   "wrap": true
-              // },
-              
+              // },       
               {
                 "type": "box",
                 "layout": "vertical",
@@ -235,38 +234,87 @@ function handleLocationEvent(event) {
             // "borderWidth": "3px"
             "backgroundColor": "#F9F8F7"
           },
-          "footer": {
+           "footer":                     {
             "type": "box",
             "layout": "vertical",
-            "spacing": "sm",
             "contents": [
               {
-                "type": "button",
-                "flex": 2,
-                "style": "primary",
-                "color": "#012971",
-                "action": {
-                  "type": "uri",
-                  "label": "นำทาง",
-                  "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
-                },
-                "height": "sm",
-                "color": "#012971"
+                "type": "filler"
               },
               {
-                "type": "button",
-                "flex": 2,
-                "style": "link",
-                "height": "sm",
-                "action":  {
+                "type": "box",
+                "layout": "baseline",
+                "contents": [
+                  {
+                    "type": "filler"
+                  },
+                  {
+                    "type": "icon",
+                    "url": "https://sv1.picz.in.th/images/2020/04/01/Qrk0yq.png"
+                  },
+                  {
+                    "type": "text",
+                    "text": "กดนำทาง",
+                    "color": "#ffffff",
+                    "offsetTop": "-2px",
+                    "margin": "md",
+                    "flex": 0
+                  },
+                  {
+                    "type": "filler"
+                  }
+                ],
+                "spacing": "sm",
+                "action": {
                   "type": "uri",
-                  "label": "เปิดบัญชีเงินฝาก",
-                  "uri": "https://uniservices1.uobgroup.com/secure/forms/th/business/business-account-opening/index.html?lang=th?s_cid=default-landing"
+                  "label": "action",
+                  "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
                 }
-              }  
+              },
+              {
+                "type": "filler"
+              }
             ],
-            "flex": 0
+            "borderWidth": "2px",
+            "cornerRadius": "8px",
+            "spacing": "sm",
+            "borderColor": "#ffffff",
+            "margin": "md",
+            "height": "40px",
+            "backgroundColor": "#48484899"
           }
+           //{
+          //   "type": "box",
+          //   "layout": "vertical",
+          //   "spacing": "sm",
+          //   "contents": [
+          //     {
+          //       "type": "button",
+          //       "flex": 2,
+          //       "style": "primary",
+          //       "color": "#012971",
+          //       "action": {
+          //         "type": "uri",
+          //         "label": "นำทาง",
+          //         "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
+          //       },
+          //       "height": "sm",
+          //       "color": "#012971"
+          //     },
+          //     {
+          //       "type": "button",
+          //       "flex": 2,
+          //       "style": "link",
+          //       "height": "sm",
+          //       "action":  {
+          //         "type": "uri",
+          //         "label": "เปิดบัญชีเงินฝาก",
+          //         "uri": "https://uniservices1.uobgroup.com/secure/forms/th/business/business-account-opening/index.html?lang=th?s_cid=default-landing"
+          //       }
+          //     }  
+          //   ],
+          //   "flex": 0
+          // }
         }))
         var msg = {
           "type": "flex",
