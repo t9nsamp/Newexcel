@@ -33,6 +33,8 @@
       range: 'A2:N38'
    })
 
+   var text = "text"
+
   // const peavolta_atm = excelToJson({
   //   sourceFile: 'atm.xlsx',
   //   columnToKey: {
@@ -70,7 +72,7 @@
       if(req.body.events[0].type === 'message'  && req.body.events[0].message.type === 'text'){
 
           postToDialogflow(req);
-      
+         text = req.body.events[0].message.text
         }
 
       else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
@@ -99,7 +101,7 @@
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        const voltajson = select(event.message.text)
+        const voltajson = select(text)
         
         //peavolta.Sheet1
         // for loop to calculate distance for all station
