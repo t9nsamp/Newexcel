@@ -69,18 +69,18 @@
       }
 
   });
-
+  const select = (a) =>{
+    if( a === 'bank'){ return peavolta_bank.Sheet1}
+    else if( a === 'atm') {return peavolta_atm.Sheet1}
+    else if( a === 'pub') {return peavolta_pub.Sheet1}
+  }
   function handleLocationEvent(event) {
  //   var sheet_select = ('text1','text2')
- const voltajson = () =>{
-  if( event.message.text === 'bank'){ return peavolta_bank.Sheet1}
-  else if( event.message.text === 'atm') {return peavolta_atm.Sheet1}
-  else if( event.message.text === 'pub') {return peavolta_pub.Sheet1}
-}
+
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        
+        const voltajson = select(event.message.text)
         
         //peavolta.Sheet1
         // for loop to calculate distance for all station
