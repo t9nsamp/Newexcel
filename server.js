@@ -22,13 +22,13 @@
     range: 'A2:N422'
   })
 
-  const peavolta2 = excelToJson({
-    sourceFile: 'pum.xlsx',
-    columnToKey: {
-        '*': '{{columnHeader}}'
-    },
-    range: 'A2:N38'
-  })
+  // const peavolta2 = excelToJson({
+  //   sourceFile: 'pum.xlsx',
+  //   columnToKey: {
+  //       '*': '{{columnHeader}}'
+  //   },
+  //   range: 'A2:N38'
+  // })
 
   require('dotenv').config()
   const app = express() 
