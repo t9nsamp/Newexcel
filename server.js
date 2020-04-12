@@ -95,7 +95,7 @@
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        const voltajson = select(event.message.text)
+        const voltajson = select("bank")
         
         //peavolta.Sheet1
         // for loop to calculate distance for all station
