@@ -53,9 +53,9 @@
   function handleLocationEvent(event) {
 
     return new Promise((resolve, reject) => {
-      var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
+      //var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
 var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get message from user Line
-      if ((intent == 'bank') ) {
+      if ((userMsg == 'bank') ) {
         
         
         var userlat = parseFloat(event.message.latitude)
