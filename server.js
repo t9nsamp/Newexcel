@@ -44,9 +44,9 @@
     });
     
     function handleLocationEvent(event) {
-      
+      if((userMsg != 'bank')){
       return new Promise((resolve, reject) => {
-        if((userMsg != 'bank')){  
+          
           var userlat = parseFloat(event.message.latitude)
           var userlng = parseFloat(event.message.longitude)
           const voltajson = peavolta.Sheet1
@@ -279,9 +279,10 @@
             reject(msg)
           }
         } 
-      }
+      
       )
     }
+  }
 
     const postToDialogflow = req => {
         req.headers.host = "bots.dialogflow.com";
