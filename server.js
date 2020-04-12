@@ -6,23 +6,6 @@
   const excelToJson = require('convert-excel-to-json')
   const geolib = require('geolib')
 
-  const peavolta_bank = excelToJson(
-    {
-      sourceFile: 'bank.xlsx',
-      columnToKey: {
-        '*': '{{columnHeader}}'
-      } ,
-      range: 'A2:N156'
-   })
-
-   const peavolta_atm = excelToJson(
-    {
-      sourceFile: 'atm.xlsx',
-      columnToKey: {
-        '*': '{{columnHeader}}'
-      } ,
-      range: 'A2:N422'
-   })
 
    const peavolta_pub = excelToJson(
     {
