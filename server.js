@@ -7,22 +7,12 @@
   const geolib = require('geolib')
 
   const peavolta = excelToJson({
-    sourceFile: 'bank.xlsx',
+    sourceFile: 'Book1.xlsx',
     columnToKey: {
         '*': '{{columnHeader}}'
     },
     range: 'A2:N848'
   })
-
-  const peavolta1 = excelToJson({
-    sourceFile: 'atm.xlsx',
-    columnToKey: {
-        '*': '{{columnHeader}}'
-    },
-    range: 'A2:N422'
-  })
-
-
 
   require('dotenv').config()
   const app = express() 
@@ -42,7 +32,7 @@
 
   app.post('/webhook', line.middleware(config), (req, res) => {
 
-      if(req.body.events[0].type === 'message' ){
+      if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
 
           postToDialogflow(req);
       
@@ -61,11 +51,11 @@
   });
 
   function handleLocationEvent(event) {
-    var sheet_select = ('text1','text2')
+
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        const voltajson = sheet_select[event.message.text]
+        const voltajson = peavolta.Sheet1
         // for loop to calculate distance for all station
         for(var i = 0; i < voltajson.length; i++) {
           var obj = voltajson[i];
