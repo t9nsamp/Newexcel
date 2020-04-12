@@ -54,6 +54,7 @@
 
     return new Promise((resolve, reject) => {
       if ((intent == 'bank') ) {
+        if((userMsg != 'bank')){
         
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
@@ -287,7 +288,7 @@
           reject(msg)
         }
       }
-    }
+    }}
     )
   
   }
