@@ -29,19 +29,19 @@
         if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
             postToDialogflow(req);
           }
-          
-        else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
-
-      Promise
-        //.all(req.body.events.map(handleEvent))
-        .all(req.body.events.map(handleLocationEvent))
-        .then((result) => res.json(result))
-        .catch(err => console.log('err', err))
-
-        }
 
     });
-    if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'bank'){ 
+    if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'bank'){
+    }
+      else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
+
+        Promise
+          //.all(req.body.events.map(handleEvent))
+          .all(req.body.events.map(handleLocationEvent))
+          .then((result) => res.json(result))
+          .catch(err => console.log('err', err))
+  
+          } 
     function handleLocationEvent(event) {
       
       return new Promise((resolve, reject) => {
