@@ -53,7 +53,7 @@
   function handleLocationEvent(event) {
 
     return new Promise((resolve, reject) => {
-      if ((intent == 'bank') ) {
+      // if ((intent == 'bank') ) {
         if((userMsg != 'bank')){
         
         var userlat = parseFloat(event.message.latitude)
@@ -270,8 +270,6 @@
               "flex": 0
             }
           }))
-        }
-      }
           var msg = {
             "type": "flex",
             "altText": "Flex Message",
@@ -290,6 +288,7 @@
           reject(msg)
         }
       }
+    }
     )
   
   }
