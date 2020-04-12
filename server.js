@@ -1,4 +1,4 @@
-    const express = require('express')
+  const express = require('express')
   const bodyParser = require('body-parser');
   var request = require('request');
   const line = require('@line/bot-sdk')
@@ -6,50 +6,13 @@
   const excelToJson = require('convert-excel-to-json')
   const geolib = require('geolib')
 
-  const peavolta_bank = excelToJson(
-    {
-      sourceFile: 'bank.xlsx',
-      columnToKey: {
+  const peavolta = excelToJson({
+    sourceFile: 'Book1.xlsx',
+    columnToKey: {
         '*': '{{columnHeader}}'
-      } ,
-      range: 'A2:N156'
-   })
-
-   const peavolta_atm = excelToJson(
-    {
-      sourceFile: 'atm.xlsx',
-      columnToKey: {
-        '*': '{{columnHeader}}'
-      } ,
-      range: 'A2:N422'
-   })
-
-   const peavolta_pum = excelToJson(
-    {
-      sourceFile: 'pum.xlsx',
-      columnToKey: {
-        '*': '{{columnHeader}}'
-      } ,
-      range: 'A2:N38'
-   })
-
-   var text = "text"
-
-  // const peavolta_atm = excelToJson({
-  //   sourceFile: 'atm.xlsx',
-  //   columnToKey: {
-  //       '*': '{{columnHeader}}'
-  //   },
-  //   range: 'A2:N422'
-  // })
-
-  // const peavolta_pub = excelToJson({
-  //   sourceFile: 'pub.xlsx',
-  //   columnToKey: {
-  //       '*': '{{columnHeader}}'
-  //   },
-  //   range: 'A2:N38'
-  // })
+    },
+    range: 'A2:N848'
+  })
 
   require('dotenv').config()
   const app = express() 
@@ -69,10 +32,10 @@
 
   app.post('/webhook', line.middleware(config), (req, res) => {
 
-      if(req.body.events[0].type === 'message'  && req.body.events[0].message.type === 'text'){
+      if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
 
           postToDialogflow(req);
-         text = req.body.events[0].message.text
+      
         }
 
       else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
@@ -87,22 +50,12 @@
 
   });
 
-
-  var select = (a) =>{
-    if( a == "bank"){ return peavolta_bank.Sheet1}
-    else if( a == "atm") {return peavolta_atm.Sheet1}
-    else if( a == "pum") {return peavolta_pum.Sheet1}
-  }
-
-
   function handleLocationEvent(event) {
- //   var sheet_select = ('text1','text2')
- 
+
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        var voltajson = select(text)       
-        //peavolta.Sheet1
+        const voltajson = peavolta.Sheet1
         // for loop to calculate distance for all station
         for(var i = 0; i < voltajson.length; i++) {
           var obj = voltajson[i];
