@@ -270,6 +270,8 @@
               "flex": 0
             }
           }))
+        }
+      }
           var msg = {
             "type": "flex",
             "altText": "Flex Message",
@@ -288,7 +290,6 @@
           reject(msg)
         }
       }
-    }}
     )
   
   }
