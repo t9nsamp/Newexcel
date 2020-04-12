@@ -52,6 +52,7 @@
   
   function handleLocationEvent(event) {
 
+var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get message from user Line
     return new Promise((resolve, reject) => {
       // if ((intent == 'bank') ) {
         if((userMsg != 'bank')){
