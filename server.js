@@ -53,7 +53,7 @@
   function handleLocationEvent(event) {
 
     return new Promise((resolve, reject) => {
-      if((userMsg != 'bank')){
+      
         
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
@@ -287,7 +287,7 @@
           reject(msg)
         }
       }
-      } 
+      
     )
   
   }
