@@ -35,7 +35,7 @@
       var userMsg = message.text; //Get message from user Line
       var userType = message.type;
       //if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
-        if((userMsg != 'Menu')){
+        if((userMsg != 'bank')){
           postToDialogflow(req);
         }
         else if((userType != 'location')){
