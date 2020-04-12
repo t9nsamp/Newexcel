@@ -38,20 +38,22 @@
           postToDialogflow(req);
         }
         
-      else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
-
-    Promise
-      //.all(req.body.events.map(handleEvent))
-      .all(req.body.events.map(handleLocationEvent))
-      .then((result) => res.json(result))
-      .catch(err => console.log('err', err))
-
-      }
 
   });
   
   function handleLocationEvent(event) {
     if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'bank'){
+
+    }
+    else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
+
+      Promise
+        //.all(req.body.events.map(handleEvent))
+        .all(req.body.events.map(handleLocationEvent))
+        .then((result) => res.json(result))
+        .catch(err => console.log('err', err))
+  
+        }
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
