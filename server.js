@@ -33,7 +33,7 @@
   app.post('/webhook', line.middleware(config), (req, res) => {
       //var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
       //var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get message from user Line
-      if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
+      if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'main'){
 
           postToDialogflow(req);
         }
@@ -53,7 +53,7 @@
   function handleLocationEvent(event) {
 
     return new Promise((resolve, reject) => {
-      if(req.body.events[0].message.text === 'bank'){
+      
 
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
@@ -288,7 +288,7 @@
         }
       
     }
-    }
+    
     )
   
   }
