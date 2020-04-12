@@ -101,7 +101,7 @@
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        const voltajson = () =>{
+        const voltajson = (text) =>{
           if( text == "bank"){ return peavolta_bank.Sheet1}
           else if( text == "atm") {return peavolta_atm.Sheet1}
           else if( text == "pum") {return peavolta_pum.Sheet1}
