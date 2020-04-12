@@ -7,7 +7,6 @@
   const geolib = require('geolib')
 
   const peavolta_bank = excelToJson(
-    
     {
       sourceFile: 'bank.xlsx',
       columnToKey: {
@@ -67,11 +66,11 @@
       }
 
   });
-  var select = (a) =>{
-    if( a === 'bank'){ return peavolta_bank.Sheet1}
-    else if( a === 'atm') {return peavolta_atm.Sheet1}
-    else if( a === 'pub') {return peavolta_pub.Sheet1}
-  }
+  // var select = (a) =>{
+  //   if( a === 'bank'){ return peavolta_bank.Sheet1}
+  //   else if( a === 'atm') {return peavolta_atm.Sheet1}
+  //   else if( a === 'pub') {return peavolta_pub.Sheet1}
+  // }
   function handleLocationEvent(event) {
  //   var sheet_select = ('text1','text2')
 
