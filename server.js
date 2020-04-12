@@ -14,15 +14,7 @@
         '*': '{{columnHeader}}'
       } ,
       range: 'A2:N156'
-    }),excelToJson({
-      sourceFile: 'atm.xlsx',
-    columnToKey: {
-        '*': '{{columnHeader}}'
-    },
-    range: 'A2:N422'
-    }
-  
-  ))
+    }))
   
   
 
@@ -77,7 +69,7 @@
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        const voltajson = peavolta[0].sheet1  //peavolta.Sheet1
+        const voltajson = (event.message.text === 'bank' ? peavolta.Sheet:peavolta.Sheet1)  //peavolta.Sheet1
         // for loop to calculate distance for all station
         for(var i = 0; i < voltajson.length; i++) {
           var obj = voltajson[i];
