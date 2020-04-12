@@ -7,9 +7,9 @@
   const geolib = require('geolib')
 
 
-   const peavolta_pub = excelToJson(
+   const peavolta_pum = excelToJson(
     {
-      sourceFile: 'pub.xlsx',
+      sourceFile: 'pum.xlsx',
       columnToKey: {
         '*': '{{columnHeader}}'
       } ,
@@ -78,7 +78,7 @@
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        const voltajson = peavolta_pub.Sheet1
+        const voltajson = peavolta_pum.Sheet1
         
         //peavolta.Sheet1
         // for loop to calculate distance for all station
