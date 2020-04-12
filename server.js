@@ -51,9 +51,10 @@
   });
   
   function handleLocationEvent(event) {
-var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
-var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get message from user Line
+
     return new Promise((resolve, reject) => {
+      var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
+var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get message from user Line
       if ((intent == 'bank') ) {
         
         
