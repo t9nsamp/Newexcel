@@ -6,25 +6,25 @@
   const excelToJson = require('convert-excel-to-json')
   const geolib = require('geolib')
 
-  const peavolta = excelToJson(
+  const peavolta = (excelToJson(
     
     {
       sourceFile: 'bank.xlsx',
       columnToKey: {
         '*': '{{columnHeader}}'
       } ,
-      range: 'A2:N848'
-    },{
+      range: 'A2:N156'
+    }),excelToJson({
       sourceFile: 'atm.xlsx',
-      columnToKey: {
-          '*': '{{columnHeader}}'
-      },
-      range: 'A2:N422'
-
-
+    columnToKey: {
+        '*': '{{columnHeader}}'
+    },
+    range: 'A2:N422'
     }
   
-  )
+  ))
+  
+  
 
   const peavolta1 = excelToJson({
     sourceFile: 'atm.xlsx',
@@ -54,7 +54,7 @@
 
   app.post('/webhook', line.middleware(config), (req, res) => {
 
-      if(req.body.events[0].type === 'message'  && req.body.events[0].message.text === 'bank'){
+      if(req.body.events[0].type === 'message'  && req.body.events[0].message.type === 'text'){
 
           postToDialogflow(req);
       
@@ -77,7 +77,7 @@
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        const voltajson = peavolta[1].sheet1  //peavolta.Sheet1
+        const voltajson = peavolta[0].sheet1  //peavolta.Sheet1
         // for loop to calculate distance for all station
         for(var i = 0; i < voltajson.length; i++) {
           var obj = voltajson[i];
