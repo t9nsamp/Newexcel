@@ -51,7 +51,7 @@
 
       }
 
-  });
+
 
     return new Promise((resolve, reject) => {
 
@@ -289,8 +289,9 @@
       
     }
     )
-  
+  });  
   }
+
 
   const postToDialogflow = req => {
       req.headers.host = "bots.dialogflow.com";
