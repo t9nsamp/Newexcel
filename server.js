@@ -14,13 +14,13 @@
     range: 'A2:N156'
   })
 
-  const peavolta1 = excelToJson({
-    sourceFile: 'atm.xlsx',
-    columnToKey: {
-        '*': '{{columnHeader}}'
-    },
-    range: 'A2:N422'
-  })
+  // const peavolta1 = excelToJson({
+  //   sourceFile: 'atm.xlsx',
+  //   columnToKey: {
+  //       '*': '{{columnHeader}}'
+  //   },
+  //   range: 'A2:N422'
+  // })
 
   // const peavolta2 = excelToJson({
   //   sourceFile: 'pum.xlsx',
@@ -303,240 +303,240 @@
           reject(msg)
         }
       }
-      if (intent == 'atm')
-      {
-        var userlat = parseFloat(event.message.latitude)
-        var userlng = parseFloat(event.message.longitude)
-        const voltajson1 = peavolta.Sheet1
-        // for loop to calculate distance for all station
-        for(var i = 0; i < voltajson1.length; i++) {
-          var obj = voltajson1[i];
-          var placelat = obj.lat
-          var placelng = obj.lng
-          // get distance 
-          var distacne = geolib.getDistance(
-            { latitude: userlat, longitude: userlng },
-            { latitude: placelat, longitude: placelng }
-          )
-          voltajson1[i].distacne = Math.ceil((distacne/1000) * 10) / 10 // write distance to voltajson
-        } // end for loop
-        // sort object in json array by distance
-        voltajson1.sort(function(a, b){
-          return a.distacne - b.distacne;
-        })
-        var result = []
-        // collect only first 5 elements
-        for (var i = 0; i < 5; i++) {
-            result.push(voltajson1[i])
-        }
+      // if (intent == 'atm')
+      // {
+      //   var userlat = parseFloat(event.message.latitude)
+      //   var userlng = parseFloat(event.message.longitude)
+      //   const voltajson1 = peavolta.Sheet1
+      //   // for loop to calculate distance for all station
+      //   for(var i = 0; i < voltajson1.length; i++) {
+      //     var obj = voltajson1[i];
+      //     var placelat = obj.lat
+      //     var placelng = obj.lng
+      //     // get distance 
+      //     var distacne = geolib.getDistance(
+      //       { latitude: userlat, longitude: userlng },
+      //       { latitude: placelat, longitude: placelng }
+      //     )
+      //     voltajson1[i].distacne = Math.ceil((distacne/1000) * 10) / 10 // write distance to voltajson
+      //   } // end for loop
+      //   // sort object in json array by distance
+      //   voltajson1.sort(function(a, b){
+      //     return a.distacne - b.distacne;
+      //   })
+      //   var result = []
+      //   // collect only first 5 elements
+      //   for (var i = 0; i < 5; i++) {
+      //       result.push(voltajson1[i])
+      //   }
 
-        if (result) {
-          const pinData = result.map(row => ({
-            "type": "bubble",
-            "size": "kilo",
-            "body": {
-              "type": "box",
-              "layout": "vertical",
-              "contents": [
-                {
-                  "type": "box",
-                  "layout": "baseline",
-                  "margin": "md",
-                  "contents": [
-                    {
-                      "type": "text",
-                      "text": `${row.bank} ${row.name}`,
-                      "weight": "bold",
-                      "size": "lg",
-                      "wrap": true
-                    }
-                  ]
-                },      
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "margin": "lg",
-                  "spacing": "sm",
-                  "contents": [
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "icon",
-                          "size": "3xl",
-                          "url": row.logo
-                        },
+      //   if (result) {
+      //     const pinData = result.map(row => ({
+      //       "type": "bubble",
+      //       "size": "kilo",
+      //       "body": {
+      //         "type": "box",
+      //         "layout": "vertical",
+      //         "contents": [
+      //           {
+      //             "type": "box",
+      //             "layout": "baseline",
+      //             "margin": "md",
+      //             "contents": [
+      //               {
+      //                 "type": "text",
+      //                 "text": `${row.bank} ${row.name}`,
+      //                 "weight": "bold",
+      //                 "size": "lg",
+      //                 "wrap": true
+      //               }
+      //             ]
+      //           },      
+      //           {
+      //             "type": "box",
+      //             "layout": "vertical",
+      //             "margin": "lg",
+      //             "spacing": "sm",
+      //             "contents": [
+      //               {
+      //                 "type": "box",
+      //                 "layout": "baseline",
+      //                 "spacing": "sm",
+      //                 "contents": [
+      //                   {
+      //                     "type": "icon",
+      //                     "size": "3xl",
+      //                     "url": row.logo
+      //                   },
 
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "icon",
-                          "url": "https://ran-ln.tk/saveIMG/location.png"
-                        },
+      //                 ]
+      //               },
+      //               {
+      //                 "type": "box",
+      //                 "layout": "baseline",
+      //                 "spacing": "sm",
+      //                 "contents": [
+      //                   {
+      //                     "type": "icon",
+      //                     "url": "https://ran-ln.tk/saveIMG/location.png"
+      //                   },
 
-                        {
-                          "type": "text",
-                          "text": "ที่อยู่",
-                          "color": "#aaaaaa",
-                          "size": "sm",
-                          "flex": 3
-                        },
-                        {
-                          "type": "text",
-                          "text": `${row.road}`,
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "sm",
-                          "flex": 5
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "icon",
-                          "url": "https://ran-ln.tk/saveIMG/time.png"
-                        },
+      //                   {
+      //                     "type": "text",
+      //                     "text": "ที่อยู่",
+      //                     "color": "#aaaaaa",
+      //                     "size": "sm",
+      //                     "flex": 3
+      //                   },
+      //                   {
+      //                     "type": "text",
+      //                     "text": `${row.road}`,
+      //                     "wrap": true,
+      //                     "color": "#666666",
+      //                     "size": "sm",
+      //                     "flex": 5
+      //                   }
+      //                 ]
+      //               },
+      //               {
+      //                 "type": "box",
+      //                 "layout": "baseline",
+      //                 "spacing": "sm",
+      //                 "contents": [
+      //                   {
+      //                     "type": "icon",
+      //                     "url": "https://ran-ln.tk/saveIMG/time.png"
+      //                   },
 
-                        {
-                          "type": "text",
-                          "text": "เวลาทำการ",
-                          "color": "#aaaaaa",
-                          "size": "sm",
-                          "flex": 3
-                        },
-                        {
-                          "type": "text",
-                          "text": `${row.time}`,
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "sm",
-                          "flex": 5
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "icon",
-                          "url": "https://ran-ln.tk/saveIMG/phone2.png"
-                        }, 
+      //                   {
+      //                     "type": "text",
+      //                     "text": "เวลาทำการ",
+      //                     "color": "#aaaaaa",
+      //                     "size": "sm",
+      //                     "flex": 3
+      //                   },
+      //                   {
+      //                     "type": "text",
+      //                     "text": `${row.time}`,
+      //                     "wrap": true,
+      //                     "color": "#666666",
+      //                     "size": "sm",
+      //                     "flex": 5
+      //                   }
+      //                 ]
+      //               },
+      //               {
+      //                 "type": "box",
+      //                 "layout": "baseline",
+      //                 "spacing": "sm",
+      //                 "contents": [
+      //                   {
+      //                     "type": "icon",
+      //                     "url": "https://ran-ln.tk/saveIMG/phone2.png"
+      //                   }, 
 
-                        {
-                          "type": "text",
-                          "text": "ติดต่อ",
-                          "color": "#aaaaaa",
-                          "size": "sm",
-                          "flex": 3
-                        },
-                        {
-                          "type": "text",
-                          "text": `${row.phone}`,
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "sm",
-                          "flex": 5
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [  
-                        {
-                          "type": "icon",
-                          "url": "https://ran-ln.tk/saveIMG/latlng1.png"
-                        }, 
+      //                   {
+      //                     "type": "text",
+      //                     "text": "ติดต่อ",
+      //                     "color": "#aaaaaa",
+      //                     "size": "sm",
+      //                     "flex": 3
+      //                   },
+      //                   {
+      //                     "type": "text",
+      //                     "text": `${row.phone}`,
+      //                     "wrap": true,
+      //                     "color": "#666666",
+      //                     "size": "sm",
+      //                     "flex": 5
+      //                   }
+      //                 ]
+      //               },
+      //               {
+      //                 "type": "box",
+      //                 "layout": "baseline",
+      //                 "spacing": "sm",
+      //                 "contents": [  
+      //                   {
+      //                     "type": "icon",
+      //                     "url": "https://ran-ln.tk/saveIMG/latlng1.png"
+      //                   }, 
 
-                        {
-                          "type": "text",
-                          "text": "ระยะทาง",
-                          "color": "#aaaaaa", 
-                          "size": "sm",
-                          "flex": 3
-                        },
-                        {
-                          "type": "text",
-                          "text":  `${row.distacne} km`,
-                          "wrap": true,
-                          "color": "#666666",
-                          "size": "sm",
-                          "flex": 5
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              // "borderColor": "#002469",
-              // "borderWidth": "3px"
-              "backgroundColor": "#F9F8F7"
-            },
-            "footer":{
-              "type": "box",
-              "layout": "vertical",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "button",
-                  "flex": 2,
-                  "style": "primary",
-                  "color": "#012971",
-                  "action": {
-                    "type": "uri",
-                    "label": "นำทาง",
-                    "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
-                  },
-                  "height": "sm",
-                  "color": "#012971"
-                },
-                {
-                  "type": "button",
-                  "flex": 2,
-                  "style": "link",
-                  "height": "sm",
-                  "action":  {
-                    "type": "uri",
-                    "label": "เปิดบัญชีเงินฝาก",
-                    "uri": "https://uniservices1.uobgroup.com/secure/forms/th/business/business-account-opening/index.html?lang=th?s_cid=default-landing"
-                  }
-                }  
-              ],
-              "flex": 0
-            }
-          }))
-          var msg = {
-            "type": "flex",
-            "altText": "Flex Message",
-            "contents": {
-                "type": "carousel",
-                "contents": pinData
-                  }
-                }
-          resolve(client.replyMessage(event.replyToken, msg))
-        } else {
-          var msg = {
-            "type": "text",
-            "text": "> Missing Data <"                                 
-          }
-          //resolve(client.replyMessage(event.replyToken, msg))
-          reject(msg)
-        }
-      }
+      //                   {
+      //                     "type": "text",
+      //                     "text": "ระยะทาง",
+      //                     "color": "#aaaaaa", 
+      //                     "size": "sm",
+      //                     "flex": 3
+      //                   },
+      //                   {
+      //                     "type": "text",
+      //                     "text":  `${row.distacne} km`,
+      //                     "wrap": true,
+      //                     "color": "#666666",
+      //                     "size": "sm",
+      //                     "flex": 5
+      //                   }
+      //                 ]
+      //               }
+      //             ]
+      //           }
+      //         ],
+      //         // "borderColor": "#002469",
+      //         // "borderWidth": "3px"
+      //         "backgroundColor": "#F9F8F7"
+      //       },
+      //       "footer":{
+      //         "type": "box",
+      //         "layout": "vertical",
+      //         "spacing": "sm",
+      //         "contents": [
+      //           {
+      //             "type": "button",
+      //             "flex": 2,
+      //             "style": "primary",
+      //             "color": "#012971",
+      //             "action": {
+      //               "type": "uri",
+      //               "label": "นำทาง",
+      //               "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
+      //             },
+      //             "height": "sm",
+      //             "color": "#012971"
+      //           },
+      //           {
+      //             "type": "button",
+      //             "flex": 2,
+      //             "style": "link",
+      //             "height": "sm",
+      //             "action":  {
+      //               "type": "uri",
+      //               "label": "เปิดบัญชีเงินฝาก",
+      //               "uri": "https://uniservices1.uobgroup.com/secure/forms/th/business/business-account-opening/index.html?lang=th?s_cid=default-landing"
+      //             }
+      //           }  
+      //         ],
+      //         "flex": 0
+      //       }
+      //     }))
+      //     var msg = {
+      //       "type": "flex",
+      //       "altText": "Flex Message",
+      //       "contents": {
+      //           "type": "carousel",
+      //           "contents": pinData
+      //             }
+      //           }
+      //     resolve(client.replyMessage(event.replyToken, msg))
+      //   } else {
+      //     var msg = {
+      //       "type": "text",
+      //       "text": "> Missing Data <"                                 
+      //     }
+      //     //resolve(client.replyMessage(event.replyToken, msg))
+      //     reject(msg)
+      //   }
+      // }
       } 
     )
   
