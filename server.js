@@ -33,27 +33,25 @@
   app.post('/webhook', line.middleware(config), (req, res) => {
       //var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
       //var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get message from user Line
-      if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
+      if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'bank'){
 
           postToDialogflow(req);
         }
         
+      else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
+
+    Promise
+      //.all(req.body.events.map(handleEvent))
+      .all(req.body.events.map(handleLocationEvent))
+      .then((result) => res.json(result))
+      .catch(err => console.log('err', err))
+
+      }
 
   });
   
   function handleLocationEvent(event) {
     if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'bank'){
-
-    }
-    else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
-
-      Promise
-        //.all(req.body.events.map(handleEvent))
-        .all(req.body.events.map(handleLocationEvent))
-        .then((result) => res.json(result))
-        .catch(err => console.log('err', err))
-  
-        }
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
@@ -290,7 +288,7 @@
     }
     
     )
-    
+    }
   }
 
   const postToDialogflow = req => {
