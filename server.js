@@ -76,9 +76,9 @@
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
         const voltajson = () => {
-             if( event.message.text === 'bank') return peavolta_bank.Sheet1
-             if( event.message.text === 'atm') return peavolta_atm.Sheet1
-             if( event.message.text === 'pub') return peavolta_pub.Sheet1
+             if( event.message.text === 'bank'){ return peavolta_bank.Sheet1}
+             else if( event.message.text === 'atm') {return peavolta_atm.Sheet1}
+             else if( event.message.text === 'pub') {return peavolta_pub.Sheet1}
         } 
         
         //peavolta.Sheet1
