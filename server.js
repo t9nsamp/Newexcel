@@ -31,13 +31,16 @@
   })
 
   app.post('/webhook', line.middleware(config), (req, res) => {
-
-      if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'bank'){
+      //var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
+      //var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get message from user Line
+      if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'bank'){
 
           postToDialogflow(req);
+                //var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
+
       
         }
-
+        
       else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
 
     Promise
@@ -53,6 +56,9 @@
   function handleLocationEvent(event) {
 
     return new Promise((resolve, reject) => {
+
+        
+        
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
         const voltajson = peavolta.Sheet1
@@ -286,6 +292,7 @@
         }
       
     }
+  
     )
   
   }
