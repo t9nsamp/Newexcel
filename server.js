@@ -54,7 +54,7 @@
 
   app.post('/webhook', line.middleware(config), (req, res) => {
 
-      if(req.body.events[0].type === 'message'  && req.body.events[0].message.type === 'text'){
+      if(req.body.events[0].type === 'message'  && req.body.events[0].message.text === 'bank'){
 
           postToDialogflow(req);
       
