@@ -15,21 +15,21 @@
       range: 'A2:N156'
    })
 
-  // const peavolta_atm = excelToJson({
-  //   sourceFile: 'atm.xlsx',
-  //   columnToKey: {
-  //       '*': '{{columnHeader}}'
-  //   },
-  //   range: 'A2:N422'
-  // })
+  const peavolta_atm = excelToJson({
+    sourceFile: 'atm.xlsx',
+    columnToKey: {
+        '*': '{{columnHeader}}'
+    },
+    range: 'A2:N422'
+  })
 
-  // const peavolta_pub = excelToJson({
-  //   sourceFile: 'pub.xlsx',
-  //   columnToKey: {
-  //       '*': '{{columnHeader}}'
-  //   },
-  //   range: 'A2:N38'
-  // })
+  const peavolta_pub = excelToJson({
+    sourceFile: 'pub.xlsx',
+    columnToKey: {
+        '*': '{{columnHeader}}'
+    },
+    range: 'A2:N38'
+  })
 
   require('dotenv').config()
   const app = express() 
@@ -77,7 +77,7 @@
     return new Promise((resolve, reject) => {
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
-        const voltajson = peavolta_bank.Sheet1
+        const voltajson = peavolta_atm.Sheet1
         
         //peavolta.Sheet1
         // for loop to calculate distance for all station
