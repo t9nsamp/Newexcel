@@ -32,13 +32,14 @@
 
   app.post('/webhook', line.middleware(config), (req, res) => {
       //var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
-      //var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get message from user Line
-      if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'bank'){
-
+      var userMsg = message.text; //Get message from user Line
+      var userType = message.type;
+      //if(req.body.events[0].type === 'message' && req.body.events[0].message.type === 'text'){
+        if((userMsg != 'Menu')){
           postToDialogflow(req);
         }
-        
-      else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
+        else if((userType != 'location')){
+      //else if (req.body.events[0].type === 'message' && req.body.events[0].message.type === 'location'){ 
 
     Promise
       //.all(req.body.events.map(handleEvent))
