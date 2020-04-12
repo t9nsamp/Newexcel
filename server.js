@@ -91,7 +91,7 @@
   var select = (a) =>{
     if( a == "bank"){ return peavolta_bank.Sheet1}
     else if( a == "atm") {return peavolta_atm.Sheet1}
-    else if( a == "pub") {return peavolta_pum.Sheet1}
+    else if( a == "pum") {return peavolta_pum.Sheet1}
   }
 
 
