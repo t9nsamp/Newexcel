@@ -51,8 +51,9 @@
   });
   
   function handleLocationEvent(event) {
-    if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'bank'){
+    
     return new Promise((resolve, reject) => {
+      if(req.body.events[0].type === 'message' && req.body.events[0].message.text === 'bank'){
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
         const voltajson = peavolta.Sheet1
@@ -284,11 +285,9 @@
           //resolve(client.replyMessage(event.replyToken, msg))
           reject(msg)
         }
-      
+      }
     }
-    
     )
-    }
   }
 
   const postToDialogflow = req => {
