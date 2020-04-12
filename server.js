@@ -51,11 +51,11 @@
   });
   
   function handleLocationEvent(event) {
-    var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
+var intent = data.queryResult.intent.displayName //Get Intent from Dialogflow
 var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get message from user Line
     return new Promise((resolve, reject) => {
       if ((intent == 'bank') ) {
-        if((userMsg != 'bank')){
+        
         
         var userlat = parseFloat(event.message.latitude)
         var userlng = parseFloat(event.message.longitude)
@@ -288,7 +288,7 @@ var userMsg = data.originalDetectIntentRequest.payload.data.message.text; //Get 
           //resolve(client.replyMessage(event.replyToken, msg))
           reject(msg)
         }
-      }
+      
     }
   }
     )
