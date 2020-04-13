@@ -7,11 +7,11 @@
   const geolib = require('geolib')
 
   const peavolta = excelToJson({
-    sourceFile: 'Book1.xlsx',
+    sourceFile: 'BANK.xlsx',
     columnToKey: {
         '*': '{{columnHeader}}'
     },
-    range: 'A2:N848'
+    range: 'A2:P156'
   })
 
   require('dotenv').config()
@@ -93,7 +93,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": `${row.bank} ${row.name}`,
+                      "text": `${row.IDCategory} ${row.Name}`,
                       "weight": "bold",
                       "size": "lg",
                       "wrap": true
@@ -114,7 +114,7 @@
                         {
                           "type": "icon",
                           "size": "3xl",
-                          "url": row.logo
+                          "url": row.Logo
                         },
 
                       ]
@@ -138,7 +138,7 @@
                         },
                         {
                           "type": "text",
-                          "text": `${row.road}`,
+                          "text": `${row.Address}`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
@@ -165,7 +165,7 @@
                         },
                         {
                           "type": "text",
-                          "text": `${row.time}`,
+                          "text": `${row.Workday}`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
@@ -192,7 +192,7 @@
                         },
                         {
                           "type": "text",
-                          "text": `${row.phone}`,
+                          "text": `${row.Tel}`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
@@ -219,7 +219,7 @@
                         },
                         {
                           "type": "text",
-                          "text":  `${row.distacne} km`,
+                          "text":  `${row.District} km`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
@@ -247,7 +247,7 @@
                   "action": {
                     "type": "uri",
                     "label": "นำทาง",
-                    "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
+                    "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.Lat},${row.Lng}`
                   },
                   "height": "sm",
                   "color": "#012971"
