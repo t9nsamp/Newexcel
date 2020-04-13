@@ -190,8 +190,20 @@
                         {
                           "type": "text",
                           "text": `จ-ศ: ${row.workday} `,
+                          "wrap": true,
+                          "color": "#666666",
+                          "size": "sm",
+                          "flex": 6
+                        },
+                        {
                           "type": "text",
                           "text": `เสาร์: ${row.Saturday} `,
+                          "wrap": true,
+                          "color": "#666666",
+                          "size": "sm",
+                          "flex": 6
+                        },
+                        {
                           "type": "text",
                           "text": `อาทิตย์: ${row.Sunday}`,
                           "wrap": true,
