@@ -7,7 +7,7 @@
   const geolib = require('geolib')
 
   const peavolta = excelToJson({
-    sourceFile: 'Bank.xlsx',
+    sourceFile: 'bank.xlsx',
     columnToKey: {
         '*': '{{columnHeader}}'
     },
@@ -114,7 +114,7 @@
                         {
                           "type": "icon",
                           "size": "3xl",
-                          "url": row.Logo
+                          "url": row.logo
                         },
 
                       ]
