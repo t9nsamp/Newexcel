@@ -240,7 +240,7 @@
                           "wrap": true,
                           "color": "#FC3F3F", 
                           "size": "sm",
-                          "flex": 8
+                          "flex": 10
                         }
                       ]
                     }
