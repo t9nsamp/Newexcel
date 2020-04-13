@@ -22,21 +22,21 @@
     //   range: 'A2:Q443'
     // })
 
-    const peavolta = excelToJson({
-      sourceFile: 'Pum.xlsx',
-      columnToKey: {
-          '*': '{{columnHeader}}'
-      },
-      range: 'A2:Q38'
-    })
-
     // const peavolta = excelToJson({
-    //   sourceFile: 'Tmrw.xlsx',
+    //   sourceFile: 'Pum.xlsx',
     //   columnToKey: {
     //       '*': '{{columnHeader}}'
     //   },
-    //   range: 'A2:Q235'
+    //   range: 'A2:Q38'
     // })
+
+    const peavolta = excelToJson({
+      sourceFile: 'Tmrw.xlsx',
+      columnToKey: {
+          '*': '{{columnHeader}}'
+      },
+      range: 'A2:Q235'
+    })
 
     require('dotenv').config()
     const app = express() 
