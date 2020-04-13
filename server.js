@@ -189,7 +189,7 @@
                           },
                           {
                             "type": "text",
-                            "text": `จ-ศ: ${row.workday} `,
+                            "text": `${row.workday} `,
                             "wrap": true,
                             "color": "#666666",
                             "size": "sm",
