@@ -7,11 +7,11 @@
   const geolib = require('geolib')
 
   const peavolta = excelToJson({
-    sourceFile: 'BANK.xlsx',
+    sourceFile: 'Bank.xlsx',
     columnToKey: {
         '*': '{{columnHeader}}'
     },
-    range: 'A2:Q156'
+    range: 'A2:O156'
   })
 
   require('dotenv').config()
