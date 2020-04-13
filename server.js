@@ -93,7 +93,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": `${row.IDCategory} ${row.Name}`,
+                      "text": `${row.category} ${row.name}`,
                       "weight": "bold",
                       "size": "lg",
                       "wrap": true
@@ -138,7 +138,7 @@
                         },
                         {
                           "type": "text",
-                          "text": `${row.Address}`,
+                          "text": `${row.address}`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
@@ -165,7 +165,7 @@
                         },
                         {
                           "type": "text",
-                          "text": `${row.Workday}`,
+                          "text": `${row.workday}`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
@@ -192,7 +192,7 @@
                         },
                         {
                           "type": "text",
-                          "text": `${row.Tel}`,
+                          "text": `${row.tel}`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
@@ -247,7 +247,7 @@
                   "action": {
                     "type": "uri",
                     "label": "นำทาง",
-                    "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.Lat},${row.Lng}`
+                    "uri": `https://www.google.com/maps/dir/${event.message.latitude},${event.message.longitude}/${row.lat},${row.lng}`
                   },
                   "height": "sm",
                   "color": "#012971"
