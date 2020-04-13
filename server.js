@@ -11,7 +11,7 @@
     columnToKey: {
         '*': '{{columnHeader}}'
     },
-    range: 'A2:O156'
+    range: 'A2:N156'
   })
 
   require('dotenv').config()
