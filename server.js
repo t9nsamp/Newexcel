@@ -6,13 +6,37 @@
   const excelToJson = require('convert-excel-to-json')
   const geolib = require('geolib')
 
+  // const peavolta = excelToJson({
+  //   sourceFile: 'Bank.xlsx',
+  //   columnToKey: {
+  //       '*': '{{columnHeader}}'
+  //   },
+  //   range: 'A2:Q156'
+  // })
+
   const peavolta = excelToJson({
-    sourceFile: 'Bank.xlsx',
+    sourceFile: 'Atm.xlsx',
     columnToKey: {
         '*': '{{columnHeader}}'
     },
-    range: 'A2:Q156'
+    range: 'A2:Q443'
   })
+
+  // const peavolta = excelToJson({
+  //   sourceFile: 'Pum.xlsx',
+  //   columnToKey: {
+  //       '*': '{{columnHeader}}'
+  //   },
+  //   range: 'A2:Q38'
+  // })
+
+  // const peavolta = excelToJson({
+  //   sourceFile: 'Tmrw.xlsx',
+  //   columnToKey: {
+  //       '*': '{{columnHeader}}'
+  //   },
+  //   range: 'A2:Q235'
+  // })
 
   require('dotenv').config()
   const app = express() 
@@ -142,7 +166,7 @@
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
-                          "flex": 5
+                          "flex": 6
                         }
                       ]
                     },
@@ -169,7 +193,7 @@
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
-                          "flex": 5
+                          "flex": 6
                         }
                       ]
                     },
@@ -196,7 +220,7 @@
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
-                          "flex": 5
+                          "flex": 6
                         }
                       ]
                     },
@@ -223,7 +247,7 @@
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
-                          "flex": 5
+                          "flex": 6
                         }
                       ]
                     },
