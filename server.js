@@ -165,7 +165,7 @@
                         },
                         {
                           "type": "text",
-                          "text": `${row.workday}-${row.Saturday}-${row.Sunday}`,
+                          "text": `จ-ศ : ${row.workday} วันเสาร์ : ${row.Saturday} วันอาทิตย์ : ${row.Sunday}`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
