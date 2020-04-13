@@ -226,7 +226,27 @@
                           "flex": 5
                         }
                       ]
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "spacing": "sm",
+                      "contents": [  
+                        {
+                          "type": "icon",
+                          "url": "https://ran-ln.tk/saveIMG/latlng1.png"
+                        }, 
+
+                        {
+                          "type": "text",
+                          "text": `${row.Note}`,
+                          "color": "#FC3F3F", 
+                          "size": "sm",
+                          "flex": 8
+                        }
+                      ]
                     }
+
                   ]
                 }
               ],
