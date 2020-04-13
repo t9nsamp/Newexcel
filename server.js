@@ -219,7 +219,7 @@
                         },
                         {
                           "type": "text",
-                          "text":  `${row.District} km`,
+                          "text":  `${row.distacne} km`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
