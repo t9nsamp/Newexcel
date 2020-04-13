@@ -14,21 +14,21 @@
     //   range: 'A2:Q156'
     // })
 
-    const peavolta = excelToJson({
-      sourceFile: 'Atm.xlsx',
-      columnToKey: {
-          '*': '{{columnHeader}}'
-      },
-      range: 'A2:Q443'
-    })
-
     // const peavolta = excelToJson({
-    //   sourceFile: 'Pum.xlsx',
+    //   sourceFile: 'Atm.xlsx',
     //   columnToKey: {
     //       '*': '{{columnHeader}}'
     //   },
-    //   range: 'A2:Q38'
+    //   range: 'A2:Q443'
     // })
+
+    const peavolta = excelToJson({
+      sourceFile: 'Pum.xlsx',
+      columnToKey: {
+          '*': '{{columnHeader}}'
+      },
+      range: 'A2:Q38'
+    })
 
     // const peavolta = excelToJson({
     //   sourceFile: 'Tmrw.xlsx',
