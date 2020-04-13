@@ -11,7 +11,7 @@
     columnToKey: {
         '*': '{{columnHeader}}'
     },
-    range: 'A2:N156'
+    range: 'A2:Q156'
   })
 
   require('dotenv').config()
@@ -165,7 +165,7 @@
                         },
                         {
                           "type": "text",
-                          "text": `${row.workday}`,
+                          "text": `${row.workday}-${row.Saturday}-${row.Sunday}`,
                           "wrap": true,
                           "color": "#666666",
                           "size": "sm",
